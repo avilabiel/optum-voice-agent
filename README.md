@@ -25,7 +25,8 @@ Next.js 15 (App Router) · TypeScript strict · Drizzle ORM + Neon serverless Po
 1. Copy env: `cp .env.example .env`
 2. Fill `.env`:
    - `DATABASE_URL` — Neon project URL.
-   - `VAPI_API_KEY`, `VAPI_PHONE_NUMBER_ID`, `VAPI_WEBHOOK_SECRET` — from your Vapi dashboard.
+   - `VAPI_API_KEY`, `VAPI_PHONE_NUMBER_ID` — from your Vapi dashboard.
+   - `VAPI_WEBHOOK_SECRET` — any random string you choose (e.g. `openssl rand -hex 32`). `setup-vapi` pushes it to Vapi for you.
    - `OPENAI_API_KEY` — OpenAI dashboard.
    - `LANGFUSE_PUBLIC_KEY` + `LANGFUSE_SECRET_KEY` — Langfuse cloud (free tier).
    - `DEMO_PHONE_NUMBER` — your phone in E.164 (e.g. `+15555550123`).

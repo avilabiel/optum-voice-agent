@@ -1,0 +1,47 @@
+{
+  "name": "optum-voice-agent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:next": "next dev -p 3000",
+    "dev:inngest": "npx inngest-cli@latest dev -u http://localhost:3000/api/inngest",
+    "dev": "concurrently -k -n next,inngest -c blue,magenta \"npm run dev:next\" \"npm run dev:inngest\"",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx scripts/seed-demo.ts",
+    "setup-vapi": "tsx scripts/setup-vapi.ts",
+    "demo": "npm run db:push && npm run db:seed && npm run setup-vapi && npm run dev"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "drizzle-orm": "^0.36.4",
+    "inngest": "^3.27.4",
+    "langfuse": "^3.30.0",
+    "next": "15.0.4",
+    "openai": "^4.73.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.0",
+    "dotenv": "^16.4.7",
+    "drizzle-kit": "^0.28.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
